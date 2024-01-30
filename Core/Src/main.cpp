@@ -22,6 +22,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "GameObject.cpp"
 
 /* USER CODE END Includes */
 
@@ -94,6 +95,11 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  for (int i = 16; i > 0; i--) {
+		  	lcd_clear();
+	        lcd_print(1, i, text);
+	        HAL_Delay(500);
+	  }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
