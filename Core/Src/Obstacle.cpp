@@ -1,10 +1,12 @@
-#include "GameObject.cpp"  // Assuming GameObject is in this header file
+//#include "GameObject.cpp"  // Assuming GameObject is in this header file
+#include "Dino.cpp"
 
-class Obstacle : GameObject {
+class Obstacle : public GameObject {
 public:
     // Constructor - uses the GameObject constructor to set initial position
-	Obstacle(char* texture, int xPos, int yPos) : GameObject(texture, xPos, yPos) {
-
+	Obstacle(char* texture, int xPos, int yPos, Dino& dinosaur) : GameObject(texture, xPos, yPos) {
+		this->setX(15);
+		dinosaur_ = &dinosaur;
     }
 
     // Override the move function from GameObject
@@ -14,12 +16,15 @@ public:
 
     int collides()
     {
-    	if (GameObject::getX() == 1 && GameObject::getY() == 2) { // if collides
-    		return 0;
+    	if ( (this->getX() == dinosaur_->getX()) && (this->getY() == dinosaur_->getY()) ) { // if collides
+    		return true;
     	}
     	else{ // if not
-    		return 1;
+    		return false;
     	}
     }
+private:
+    Dino* dinosaur_;
+
 
 };

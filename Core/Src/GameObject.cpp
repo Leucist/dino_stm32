@@ -4,7 +4,7 @@
 class GameObject
 {
 public:
-    GameObject(char* texture, int xPos, int yPos)
+	GameObject(char* texture, int xPos, int yPos)
     {
     	texture_ = texture;
     	xPos_ = xPos;
@@ -18,6 +18,10 @@ public:
     int getY(){
         return yPos_;
         }
+
+    void setX(int xPos__){
+    	xPos_ = xPos__;
+    }
 
     int getTexture(){
         return *texture_;

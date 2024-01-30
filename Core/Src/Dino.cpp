@@ -1,11 +1,13 @@
 #include "GameObject.cpp"  // Assuming GameObject is in this header file
 
-class Dino : GameObject
+
+class Dino : public GameObject
 {
 private:
-    const int FLY_TIME = 3;
     int delay;
 public:
+    static const int FLY_TIME = 3;
+
     Dino(char* texture, int xPos, int yPos) : GameObject(texture, xPos, yPos) {
 
       }

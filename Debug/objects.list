@@ -1,3 +1,4 @@
+"./Core/Src/Dino.o"
 "./Core/Src/GameObject.o"
 "./Core/Src/Obstacle.o"
 "./Core/Src/lcd.o"
