@@ -168,3 +168,13 @@ void lcd_line1(void) {
 void lcd_line2(void) {
 	lcd_cmd(0xC0);
 }
+
+void lcd_shift_left(void){
+	lcd_cmd(0x18);
+	HAL_Delay(5);
+}
+
+void lcd_shift_right(void){
+	lcd_cmd(0x1C);
+	HAL_Delay(5);
+}

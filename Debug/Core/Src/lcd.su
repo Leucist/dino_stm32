@@ -1,12 +1,14 @@
-../Core/Src/lcd.c:5:6:Delay	16	static
-../Core/Src/lcd.c:9:6:lcd_delay	8	static
-../Core/Src/lcd.c:14:6:lcd_cmd	16	static
-../Core/Src/lcd.c:59:6:lcd_char_cp	16	static
-../Core/Src/lcd.c:104:6:lcd_out_cp	16	static
-../Core/Src/lcd.c:115:6:lcd_init	16	static
-../Core/Src/lcd.c:132:6:lcd_gotoxy	16	static
-../Core/Src/lcd.c:146:6:lcd_char	16	static
-../Core/Src/lcd.c:152:6:lcd_print	16	static
-../Core/Src/lcd.c:158:6:lcd_clear	8	static
-../Core/Src/lcd.c:164:6:lcd_line1	8	static
-../Core/Src/lcd.c:168:6:lcd_line2	8	static
+../Core/Src/lcd.cpp:5:6:void Delay(uint32_t)	16	static
+../Core/Src/lcd.cpp:9:6:void lcd_delay()	8	static
+../Core/Src/lcd.cpp:14:6:void lcd_cmd(char)	16	static
+../Core/Src/lcd.cpp:59:6:void lcd_char_cp(char)	16	static
+../Core/Src/lcd.cpp:104:6:void lcd_out_cp(char*)	16	static
+../Core/Src/lcd.cpp:115:6:void lcd_init(char, char, char)	16	static
+../Core/Src/lcd.cpp:132:6:void lcd_gotoxy(unsigned char, unsigned char)	16	static
+../Core/Src/lcd.cpp:146:6:void lcd_char(unsigned char, unsigned char, char)	16	static
+../Core/Src/lcd.cpp:152:6:void lcd_print(unsigned char, unsigned char, char*)	16	static
+../Core/Src/lcd.cpp:158:6:void lcd_clear()	8	static
+../Core/Src/lcd.cpp:164:6:void lcd_line1()	8	static
+../Core/Src/lcd.cpp:168:6:void lcd_line2()	8	static
+../Core/Src/lcd.cpp:172:6:void lcd_shift_left()	8	static
+../Core/Src/lcd.cpp:177:6:void lcd_shift_right()	8	static

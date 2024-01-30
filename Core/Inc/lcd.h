@@ -36,3 +36,5 @@ void lcd_init(char bits, char font, char lines);
 void lcd_clear(void);
 void lcd_line1(void);
 void lcd_line2(void);
+void lcd_shift_left(void);
+void lcd_shift_right(void);
