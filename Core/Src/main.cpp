@@ -88,10 +88,6 @@ int main(void)
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
 
-  lcd_init(8,2,1);
-
-  lcd_shift_left();
-
   /* USER CODE END 2 */
 
   /* Infinite loop */
