@@ -45,6 +45,8 @@
 
 /* USER CODE BEGIN PV */
 
+const int FLY_TIME = 3;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
