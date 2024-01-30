@@ -1,5 +1,4 @@
 /* USER CODE BEGIN Header */
-#include "lcd.h"
 /**
   ******************************************************************************
   * @file           : main.c
@@ -22,8 +21,13 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "GameObject.cpp"
+#include "lcd.h"
 
+#include "GameObject.cpp"
+#include "Dino.cpp"
+#include "Obstacle.cpp"
+
+#include <vector>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -56,7 +60,19 @@ static void MX_GPIO_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+void game() {
+	Dino dino();
+	int gameOver = false;	// default: 0
+	std::vector<Obstacle> obstacles();
 
+	while (!gameOver)
+	if (dino.getY() == 1) dino.fall();
+	else if (HAL_GPIO_ReadPin(USER_BTN_GPIO_Port, USER_BTN_Pin) == GPIO_PIN_RESET) {
+		dino.jump();
+	}
+
+	for (Obstacle obst& : obstacles)
+}
 /* USER CODE END 0 */
 
 /**
@@ -95,6 +111,8 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  game();
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
