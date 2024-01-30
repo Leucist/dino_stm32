@@ -22,7 +22,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "GameObject.cpp"
+#include "Obstacle.cpp"
 
 /* USER CODE END Includes */
 
