@@ -1,4 +1,5 @@
-#include "GameObject.cpp"  // Assuming GameObject is in this header file
+//#include "GameObject.cpp"  // Assuming GameObject is in this header file
+#include "GameObject.h"
 
 
 class Dino : public GameObject

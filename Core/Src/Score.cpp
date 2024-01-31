@@ -1,5 +1,5 @@
 #include <cstdio>				// for sprintf()
-#include "GameObject.cpp"
+#include "GameObject.h"
 
 class Score : public GameObject {
 private:

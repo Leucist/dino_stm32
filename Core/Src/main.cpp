@@ -27,6 +27,7 @@
 //#include "Dino.cpp"
 #include "Obstacle.cpp"
 #include "Score.cpp"
+#include "Dino.cpp"
 
 #include <vector>
 /* USER CODE END Includes */

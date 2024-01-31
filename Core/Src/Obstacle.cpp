@@ -1,5 +1,6 @@
 //#include "GameObject.cpp"  // Assuming GameObject is in this header file
-#include "Dino.cpp"
+#include "GameObject.h"
+
 
 class Obstacle : public GameObject {
 public:

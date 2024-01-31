@@ -1,3 +1,5 @@
+#pragma once
+
 #include <cstring>				// for strcpy()
 #include <cstdint>				// for uint8_t
 #include "lcd.h"

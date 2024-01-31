@@ -75,8 +75,8 @@ all: main-build
 main-build: dino.elf secondary-outputs
 
 # Tool invocations
-dino.elf dino.map: $(OBJS) $(USER_OBJS) /home/leucist/STM32CubeIDE/workspace_1.13.2/dino/STM32L476RGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-g++ -o "dino.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/home/leucist/STM32CubeIDE/workspace_1.13.2/dino/STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="dino.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+dino.elf dino.map: $(OBJS) $(USER_OBJS) B:\DINOSAUR_STM32project\dino_stm32\STM32L476RGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-g++ -o "dino.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"B:\DINOSAUR_STM32project\dino_stm32\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="dino.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

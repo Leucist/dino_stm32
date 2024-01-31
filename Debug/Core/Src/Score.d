@@ -1,4 +1,4 @@
-Core/Src/Score.o: ../Core/Src/Score.cpp ../Core/Src/GameObject.cpp \
+Core/Src/Score.o: ../Core/Src/Score.cpp ../Core/Inc/GameObject.h \
  ../Core/Inc/lcd.h
-../Core/Src/GameObject.cpp:
+../Core/Inc/GameObject.h:
 ../Core/Inc/lcd.h:
