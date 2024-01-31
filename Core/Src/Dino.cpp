@@ -34,7 +34,7 @@ public:
     	}
     }
 
-    void draw() override {
+    void draw() {
     	lcd_print(this->getX(), this->getY(), textures_[frame++]);
     	if (frame > 1) frame = 0;
     }

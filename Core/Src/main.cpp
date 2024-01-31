@@ -49,7 +49,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-const char dinosaur_1[] = {
+char dinosaur_1[] = {
 	0b01011,
 	0b00111,
 	0b00110,
@@ -60,7 +60,7 @@ const char dinosaur_1[] = {
 	0b01010
 };
 
-const char dinosaur_2[] = {
+char dinosaur_2[] = {
 	0b00000,
 	0b01011,
 	0b00111,
@@ -73,7 +73,7 @@ const char dinosaur_2[] = {
 
 char dinosaur_textures[2][8] = {dinosaur_1, dinosaur_2};
 
-const char cactus_1[] = {
+char cactus_1[] = {
 	0b00110,
 	0b00110,
 	0b10111,
@@ -84,7 +84,7 @@ const char cactus_1[] = {
 	0b00110,
 };
 
-const char cactus_2[] = {
+char cactus_2[] = {
 	0b00000,
 	0b00000,
 	0b00000,
@@ -95,7 +95,7 @@ const char cactus_2[] = {
 	0b01100
 };
 
-const char filledSquare[]{
+char filledSquare[]{
    0b11111,
    0b11111,
    0b11111,
@@ -106,7 +106,7 @@ const char filledSquare[]{
    0b11111,
 };
 
-const char notFilledSquare[]{
+char notFilledSquare[]{
 	0b00000,
 	0b00000,
 	0b00000,
