@@ -62,16 +62,41 @@ static void MX_GPIO_Init(void);
 /* USER CODE BEGIN 0 */
 void game() {
 	Dino dino();
+	Score score();
 	int gameOver = false;	// default: 0
 	std::vector<Obstacle> obstacles();
 
-	while (!gameOver)
-	if (dino.getY() == 1) dino.fall();
-	else if (HAL_GPIO_ReadPin(USER_BTN_GPIO_Port, USER_BTN_Pin) == GPIO_PIN_RESET) {
-		dino.jump();
-	}
+	while (!gameOver) {
+		// Check if Dino is currently in the air
+		if (dino.getY() == 1) dino.fall();
+		// If Dino is on the ground and the USER_BTN is pressed – jump
+		else if (HAL_GPIO_ReadPin(USER_BTN_GPIO_Port, USER_BTN_Pin) == GPIO_PIN_RESET) {
+			dino.jump();
+		}
 
-	for (Obstacle obst& : obstacles)
+		// Iterate through the obstacles
+		for (Obstacle& obst : obstacles) {
+			obst.move();						// Move the current obstacle
+			gameOver = obst.collides(dino);		// Check if dino collides the obstacle
+			obst.draw();						// Draw the obstacle
+		}
+
+		// Rise Player's score
+		counter.up();
+		// If score has reached it's max.value – game ends
+		if (counter.get() >= score.SCORE_LIMIT) gameOver = true;
+
+
+		// Clear the LCD screen before drawing objects
+		lcd_clear();
+		// Draw player charachter and score
+		dino.draw();
+		score.draw();
+		// Draw all the obstacles
+		for (Obstacle& obst : obstacles) {
+			obst.draw();
+		}
+	}
 }
 /* USER CODE END 0 */
 
