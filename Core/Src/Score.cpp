@@ -8,11 +8,11 @@ private:
 
 public:
 	static const uint8_t SCORE_LIMIT = 99;
-	static uint8_t MAX_SCORE;
+	uint8_t MAX_SCORE;
 
 	Score(uint8_t xPos, uint8_t yPos) : GameObject("00", xPos, yPos) {
 		score = 0;
-		Score::MAX_SCORE = 0;
+		MAX_SCORE = 0;
 	}
 
 	int get() {
@@ -27,12 +27,12 @@ public:
 	}
 
 	void calculateMaxScore() {
-		Score::MAX_SCORE = Score::MAX_SCORE > this->score ? Score::MAX_SCORE : this->score;
+		this->MAX_SCORE = this->MAX_SCORE > this->score ? this->MAX_SCORE : this->score;
 	}
 
 	void reset() {
 		score = 0;
-//		char* zeroScore = "00";
-		this->setTexture("00");
+		char zeroScore[] = "00";
+		this->setTexture(zeroScore);
 	}
 };
