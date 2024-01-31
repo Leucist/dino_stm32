@@ -213,7 +213,6 @@ void manage_obstacles(std::vector<Obstacle>& vec) {
         prevX = obst.getX();
     }
 
-    std::srand(static_cast<unsigned>(std::time(0)));
     int chanseToCreateObstacle = std::rand() % 10 + 1;
 
     if(group_counter < Dino::FLY_TIME){  // add new obstacles
@@ -300,6 +299,8 @@ int main(void)
 {
   /* USER CODE BEGIN 1 */
 	lcd_init(8, 1, 2);
+	load_custom_chars();
+	std::srand(static_cast<unsigned>(13));
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -321,7 +322,6 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
-  load_custom_chars();
   /* USER CODE END 2 */
 
   /* Infinite loop */
