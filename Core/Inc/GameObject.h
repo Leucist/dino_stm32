@@ -19,6 +19,9 @@ public:
 		yPos_ = yPos;
     }
 
+	// Defines virtual default destructor
+	virtual ~GameObject() = default;
+
 	uint8_t getX(){
     	return xPos_;
 	}
@@ -31,8 +34,8 @@ public:
         return texture_;
 	}
 
-    virtual void draw(uint8_t row, uint8_t column){
-    	lcd_print(row, column, texture_);
+    virtual void draw(){
+    	lcd_print(yPos_, xPos_, texture_);
 	}
 
 protected:

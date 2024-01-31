@@ -32,7 +32,7 @@ public:
 
 	void reset() {
 		score = 0;
-		char zeroScore[] = "00";
-		this->setTexture(zeroScore);
+//		char zeroScore[] = "00";
+		this->setTexture("00");
 	}
 };
