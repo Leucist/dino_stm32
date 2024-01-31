@@ -48,7 +48,73 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
+char dinosaur_1[] = {
+	0b01011,
+	0b00111,
+	0b00110,
+	0b01110,
+	0b11110,
+	0b11110,
+	0b01010,
+	0b01010
+};
 
+char dinosaur_2[] = {
+	0b00000,
+	0b01011,
+	0b00111,
+	0b00110,
+	0b01110,
+	0b11110,
+	0b11110,
+	0b10001
+};
+
+char dinosaur_textures[2][8] = {dinosaur_1, dinosaur_2};
+
+char cactus_1[] = {
+	0b00110,
+	0b00110,
+	0b10111,
+	0b11111,
+	0b01110,
+	0b00110,
+	0b00110,
+	0b00110,
+};
+
+char cactus_2[] = {
+	0b00000,
+	0b00000,
+	0b00000,
+	0b00001,
+	0b01101,
+	0b01111,
+	0b01110,
+	0b01100
+};
+
+char filledSquare[]{
+   0b11111,
+   0b11111,
+   0b11111,
+   0b11111,
+   0b11111,
+   0b11111,
+   0b11111,
+   0b11111,
+};
+
+char notFilledSquare[]{
+	0b00000,
+	0b00000,
+	0b00000,
+	0b00000,
+	0b00000,
+	0b00000,
+	0b00000,
+	0b00000,
+};
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -60,9 +126,23 @@ static void MX_GPIO_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-void game() {
+void loadCustomChar(uint8_t charNum, const char *pattern) {
+	lcd_cmd(0x40 | (charNum << 3)); // Set CGRAM address
+	for (int i = 0; i < 8; ++i)
+	{
+		lcd_char_cp(pattern[i]);
+	}
+}
+
+void load_custom_chars() {
+
+}
+
+void game(Score score) {
 	Dino dino();
-	Score score();
+//	Score score();
+	score.reset();
+
 	int gameOver = false;	// default: 0
 	std::vector<Obstacle> obstacles();
 
@@ -107,7 +187,7 @@ void game() {
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-
+	lcd_init(8, 1, 2);
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -129,14 +209,18 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
-
+  load_custom_chars();
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  game();
+	  Score score();
+
+	  lcd_transition();
+	  game(score);
+	  end_game(score);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
