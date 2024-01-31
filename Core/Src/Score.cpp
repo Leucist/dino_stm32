@@ -3,30 +3,19 @@
 class Score : public GameObject
 {
 private:
-    int delay;
+	int score = 0;
+
 public:
-    static const int SCORE_LIMIT = 99;
-    static int MAX_SCORE;
+	Score(int xPos, int yPos) : GameObject(char("00"), xPos, yPos) {}
 
-    Dino(char* texture, int xPos, int yPos) : GameObject(texture, xPos, yPos) {
+	static int MAX_SCORE;
 
-      }
+	int getMAX_SCORE(){
+		return MAX_SCORE;
+	}
 
-    void jump(){
-            GameObject::move(0, 1);
-            delay = FLY_TIME;
-        }
-
-    void fall(){
-      if(delay > 0){
-        delay--;
-      }
-      else if(delay == 0){
-        delay = 0;
-        GameObject::move(0, -1);
-      }
-    }
-
-    void reset()
+	void up(){
+		score++;
+	}
 
 };
