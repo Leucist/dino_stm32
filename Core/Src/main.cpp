@@ -29,7 +29,11 @@
 #include "Score.cpp"
 #include "Dino.cpp"
 
+#include <ctime>
+#include <cstdlib>
 #include <vector>
+#include <stdio.h>
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -72,7 +76,30 @@ char dinosaur_2[] = {
 	0b10001
 };
 
-char dinosaur_textures[2][8] = {dinosaur_1, dinosaur_2};
+//char dinosaur_textures[2][8] = {dinosaur_1, dinosaur_2};
+
+char dinosaur_textures[2][8] = {
+    {
+        0b01011,
+        0b00111,
+        0b00110,
+        0b01110,
+        0b11110,
+        0b11110,
+        0b01010,
+        0b01010
+    },
+    {
+        0b00000,
+        0b01011,
+        0b00111,
+        0b00110,
+        0b01110,
+        0b11110,
+        0b11110,
+        0b10001
+    }
+};
 
 char cactus_1[] = {
 	0b00110,
@@ -168,41 +195,43 @@ void lcd_transition(){
 
 void manage_obstacles(std::vector<Obstacle>& vec) {
     // проверка не пустой ли массив
-    if(!vec->empty()){
-        if(vec[0]->getX() < 0){
-            vec->erase(vec->begin());
+    if(!vec.empty()){
+        if(vec[0].getX() < 0){
+            vec.erase(vec.begin());
         }
     }
 
     // int prevX = 0 так как obst.getX() - prevX <= 2
-    int prevX = -Dino.FLY_TIME;
+    int prevX = -Dino::FLY_TIME;
     int group_counter = 1;
-    for (Obstacle& obst : obstacles) {
-        if(obst->getX() - prevX <= 2){
+    for (Obstacle& obst : vec) {
+        if(obst.getX() - prevX <= 2){
             group_counter++;
         } else {
             group_counter = 1;
         }
-        prevX = obst->getX();
+        prevX = obst.getX();
     }
 
     std::srand(static_cast<unsigned>(std::time(0)));
     int chanseToCreateObstacle = std::rand() % 10 + 1;
 
-    if(group_counter < Dino.FLY_TIME){
+    if(group_counter < Dino::FLY_TIME){  // add new obstacles
         if(chanseToCreateObstacle <= 1){
-            vec->emplace_back(Obstacle(cactus_2));
+            vec.emplace_back(Obstacle(cactus_2));
         }else if(chanseToCreateObstacle <= 4){
-            vec->emplace_back(Obstacle(cactus_1));
+            vec.emplace_back(Obstacle(cactus_1));
         }
     }
 }
 
+
 void end_game(Score* score){
   lcd_transition();
+  score->calculateMaxScore();
 
-  char* max_score[3];
-  std::sprintf(max_score, "%d", Score.MAX_SCORE);
+  char max_score[3];
+  std::sprintf(max_score, "%d", score->MAX_SCORE);
 
   lcd_print(1, 1, "MAX_SCORE:");
   lcd_print(1, 14, max_score);
@@ -214,8 +243,8 @@ void end_game(Score* score){
 }
 
 void game(Score* score) {
-	Dino dino();
-	std::vector<Obstacle> obstacles();
+	Dino dino(dinosaur_textures, 3, 2);
+	std::vector<Obstacle> obstacles;
 //	Score score();
 	score->reset();
 
@@ -232,15 +261,15 @@ void game(Score* score) {
 
 		// Iterate through the obstacles
 		for (Obstacle& obst : obstacles) {
-			obst->move();						// Move the current obstacle
-			gameOver = obst->collides(dino);	// Check if dino collides the obstacle
-			obst->draw();						// Draw the obstacle
+			obst.move();						// Move the current obstacle
+			gameOver = obst.collides(dino);	// Check if dino collides the obstacle
+			obst.draw();						// Draw the obstacle
 		}
 
 		// Rise Player's score
-		counter.up();
+		score->up();
 		// If score has reached it's max.value – game ends
-		if (counter.get() >= score->SCORE_LIMIT) gameOver = true;
+		if (score->get() >= score->SCORE_LIMIT) gameOver = true;
 
 		manage_obstacles(obstacles);
 
@@ -251,7 +280,7 @@ void game(Score* score) {
 		score->draw();
 		// Draw all the obstacles
 		for (Obstacle& obst : obstacles) {
-			obst->draw();
+			obst.draw();
 		}
 
 		// Delays before the next frame
@@ -259,6 +288,8 @@ void game(Score* score) {
 		HAL_Delay(delay);
 	}
 }
+
+
 /* USER CODE END 0 */
 
 /**
