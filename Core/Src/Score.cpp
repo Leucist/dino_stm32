@@ -4,12 +4,16 @@
 class Score : public GameObject {
 private:
 //	int score = 0;
-	int score;
+	uint8_t score;
 
 public:
-	static int MAX_SCORE;
+	static const uint8_t SCORE_LIMIT = 99;
+	static uint8_t MAX_SCORE;
 
-	Score(int xPos, int yPos) : GameObject("00", xPos, yPos) { score = 0; }
+	Score(uint8_t xPos, uint8_t yPos) : GameObject("00", xPos, yPos) {
+		score = 0;
+		MAX_SCORE = 0;
+	}
 
 	int get() {
 		return score;
@@ -24,6 +28,7 @@ public:
 
 	void reset() {
 		score = 0;
-		this->setTexture("00");
+		char* zeroScore = "00";
+		this->setTexture(zeroScore);
 	}
 };

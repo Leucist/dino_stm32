@@ -1,25 +1,27 @@
-#include <cstring>
+#include <cstring>				// for strcpy()
+#include <cstdint>				// for uint8_t
 #include "lcd.h"
 
 class GameObject
 {
 private:
     char* texture_;
-    int xPos_, yPos_;
+    uint8_t xPos_;
+    uint8_t yPos_;
 
 public:
-	GameObject(char* texture, int xPos, int yPos)
+	GameObject(char* texture, uint8_t xPos, uint8_t yPos)
     {
     	texture_ = texture;
     	xPos_ = xPos;
 		yPos_ = yPos;
     }
 
-    int getX(){
+	uint8_t getX(){
     	return xPos_;
 	}
 
-    int getY(){
+	uint8_t getY(){
         return yPos_;
 	}
 
@@ -27,12 +29,12 @@ public:
         return texture_;
 	}
 
-    virtual void draw(int row, int column){
+    virtual void draw(uint8_t row, uint8_t column){
     	lcd_print(row, column, texture_);
 	}
 
 protected:
-    void move(int diffX, int diffY) {
+    void move(uint8_t diffX, uint8_t diffY) {
 		xPos_ += diffX;
 		yPos_ += diffY;
 	}

@@ -4,18 +4,19 @@
 class Dino : public GameObject
 {
 private:
-    int delay;
-    int frame;
+	uint8_t delay;
+	uint8_t frame;
     char textures_[2][8];
 
 public:
-    static const int FLY_TIME = 3;
+    static const uint8_t FLY_TIME = 3;
 
-    Dino(char textures[2][8], int xPos, int yPos) : GameObject(textures[1], xPos, yPos) {
+    Dino(char textures[2][8], uint8_t xPos, uint8_t yPos) : GameObject(textures[1], xPos, yPos) {
 //    	textures_ = textures;
     	for (int i = 0; i < 2; i++) {
 			std::memcpy(textures_[i], textures[i], sizeof(textures[i]));
 		}
+    	delay = 0;
     	frame = 0;
       }
 
