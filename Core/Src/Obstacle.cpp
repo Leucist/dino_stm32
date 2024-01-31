@@ -4,27 +4,20 @@
 class Obstacle : public GameObject {
 public:
     // Constructor - uses the GameObject constructor to set initial position
-	Obstacle(char* texture, int xPos, int yPos, Dino& dinosaur) : GameObject(texture, xPos, yPos) {
-		this->setX(15);
-		dinosaur_ = &dinosaur;
-    }
+	Obstacle(char* texture) : GameObject(texture, 15, 2) {}
 
-    // Override the move function from GameObject
+    // Call the move function from GameObject
     void move(){
         GameObject::move(-1, 0);
     }
 
-    int collides()
+    int collides(GameObject obj)
     {
-    	if ( (this->getX() == dinosaur_->getX()) && (this->getY() == dinosaur_->getY()) ) { // if collides
+    	if ((this->getX() == obj.getX()) && (this->getY() == obj.getY())) {		// if collides
     		return true;
     	}
-    	else{ // if not
+    	else{ 																	// if not
     		return false;
     	}
     }
-private:
-    Dino* dinosaur_;
-
-
 };

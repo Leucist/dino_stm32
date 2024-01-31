@@ -15,6 +15,7 @@ CPP_SRCS += \
 ../Core/Src/Dino.cpp \
 ../Core/Src/GameObject.cpp \
 ../Core/Src/Obstacle.cpp \
+../Core/Src/Score.cpp \
 ../Core/Src/lcd.cpp \
 ../Core/Src/main.cpp 
 
@@ -29,6 +30,7 @@ OBJS += \
 ./Core/Src/Dino.o \
 ./Core/Src/GameObject.o \
 ./Core/Src/Obstacle.o \
+./Core/Src/Score.o \
 ./Core/Src/lcd.o \
 ./Core/Src/main.o \
 ./Core/Src/stm32l4xx_hal_msp.o \
@@ -41,6 +43,7 @@ CPP_DEPS += \
 ./Core/Src/Dino.d \
 ./Core/Src/GameObject.d \
 ./Core/Src/Obstacle.d \
+./Core/Src/Score.d \
 ./Core/Src/lcd.d \
 ./Core/Src/main.d 
 
@@ -54,7 +57,7 @@ Core/Src/%.o Core/Src/%.su Core/Src/%.cyclo: ../Core/Src/%.c Core/Src/subdir.mk
 clean: clean-Core-2f-Src
 
 clean-Core-2f-Src:
-	-$(RM) ./Core/Src/Dino.cyclo ./Core/Src/Dino.d ./Core/Src/Dino.o ./Core/Src/Dino.su ./Core/Src/GameObject.cyclo ./Core/Src/GameObject.d ./Core/Src/GameObject.o ./Core/Src/GameObject.su ./Core/Src/Obstacle.cyclo ./Core/Src/Obstacle.d ./Core/Src/Obstacle.o ./Core/Src/Obstacle.su ./Core/Src/lcd.cyclo ./Core/Src/lcd.d ./Core/Src/lcd.o ./Core/Src/lcd.su ./Core/Src/main.cyclo ./Core/Src/main.d ./Core/Src/main.o ./Core/Src/main.su ./Core/Src/stm32l4xx_hal_msp.cyclo ./Core/Src/stm32l4xx_hal_msp.d ./Core/Src/stm32l4xx_hal_msp.o ./Core/Src/stm32l4xx_hal_msp.su ./Core/Src/stm32l4xx_it.cyclo ./Core/Src/stm32l4xx_it.d ./Core/Src/stm32l4xx_it.o ./Core/Src/stm32l4xx_it.su ./Core/Src/syscalls.cyclo ./Core/Src/syscalls.d ./Core/Src/syscalls.o ./Core/Src/syscalls.su ./Core/Src/sysmem.cyclo ./Core/Src/sysmem.d ./Core/Src/sysmem.o ./Core/Src/sysmem.su ./Core/Src/system_stm32l4xx.cyclo ./Core/Src/system_stm32l4xx.d ./Core/Src/system_stm32l4xx.o ./Core/Src/system_stm32l4xx.su
+	-$(RM) ./Core/Src/Dino.cyclo ./Core/Src/Dino.d ./Core/Src/Dino.o ./Core/Src/Dino.su ./Core/Src/GameObject.cyclo ./Core/Src/GameObject.d ./Core/Src/GameObject.o ./Core/Src/GameObject.su ./Core/Src/Obstacle.cyclo ./Core/Src/Obstacle.d ./Core/Src/Obstacle.o ./Core/Src/Obstacle.su ./Core/Src/Score.cyclo ./Core/Src/Score.d ./Core/Src/Score.o ./Core/Src/Score.su ./Core/Src/lcd.cyclo ./Core/Src/lcd.d ./Core/Src/lcd.o ./Core/Src/lcd.su ./Core/Src/main.cyclo ./Core/Src/main.d ./Core/Src/main.o ./Core/Src/main.su ./Core/Src/stm32l4xx_hal_msp.cyclo ./Core/Src/stm32l4xx_hal_msp.d ./Core/Src/stm32l4xx_hal_msp.o ./Core/Src/stm32l4xx_hal_msp.su ./Core/Src/stm32l4xx_it.cyclo ./Core/Src/stm32l4xx_it.d ./Core/Src/stm32l4xx_it.o ./Core/Src/stm32l4xx_it.su ./Core/Src/syscalls.cyclo ./Core/Src/syscalls.d ./Core/Src/syscalls.o ./Core/Src/syscalls.su ./Core/Src/sysmem.cyclo ./Core/Src/sysmem.d ./Core/Src/sysmem.o ./Core/Src/sysmem.su ./Core/Src/system_stm32l4xx.cyclo ./Core/Src/system_stm32l4xx.d ./Core/Src/system_stm32l4xx.o ./Core/Src/system_stm32l4xx.su
 
 .PHONY: clean-Core-2f-Src
 

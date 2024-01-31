@@ -23,8 +23,8 @@
 /* USER CODE BEGIN Includes */
 #include "lcd.h"
 
-#include "GameObject.cpp"
-#include "Dino.cpp"
+//#include "GameObject.cpp"
+//#include "Dino.cpp"
 #include "Obstacle.cpp"
 
 #include <vector>
@@ -137,7 +137,6 @@ int main(void)
   while (1)
   {
 	  game();
-
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
