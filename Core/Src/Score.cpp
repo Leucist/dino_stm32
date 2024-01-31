@@ -1,3 +1,4 @@
+#include <cstdio>				// for sprintf()
 #include "GameObject.cpp"
 
 class Score : public GameObject {
