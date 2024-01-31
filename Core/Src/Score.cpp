@@ -12,7 +12,7 @@ public:
 
 	Score(uint8_t xPos, uint8_t yPos) : GameObject("00", xPos, yPos) {
 		score = 0;
-		MAX_SCORE = 0;
+		Score::MAX_SCORE = 0;
 	}
 
 	int get() {
@@ -26,9 +26,13 @@ public:
 		this->setTexture(scoreFromInt);					// updates score texture
 	}
 
+	void calculateMaxScore() {
+		Score::MAX_SCORE = Score::MAX_SCORE > this->score ? Score::MAX_SCORE : this->score;
+	}
+
 	void reset() {
 		score = 0;
-		char* zeroScore = "00";
-		this->setTexture(zeroScore);
+//		char* zeroScore = "00";
+		this->setTexture("00");
 	}
 };
