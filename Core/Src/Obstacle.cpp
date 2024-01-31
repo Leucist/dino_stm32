@@ -11,12 +11,12 @@ public:
         GameObject::move(-1, 0);
     }
 
-    int collides(GameObject obj)
+    bool collides(GameObject obj)
     {
     	if ((this->getX() == obj.getX()) && (this->getY() == obj.getY())) {		// if collides
     		return true;
     	}
-    	else{ 																	// if not
+    	else { 																	// if not
     		return false;
     	}
     }

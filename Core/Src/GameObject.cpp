@@ -1,4 +1,4 @@
-#include <iostream>
+#include <cstring>
 #include "lcd.h"
 
 class GameObject
@@ -23,18 +23,21 @@ public:
         return yPos_;
 	}
 
-    int getTexture(){
-        return *texture_;
+    char* getTexture(){
+        return texture_;
 	}
 
-    void draw(int row, int column){
+    virtual void draw(int row, int column){
     	lcd_print(row, column, texture_);
 	}
 
 protected:
-    void move(int diffX, int diffY)
-        {
-    	    xPos_ += diffX;
-    	    yPos_ += diffY;
-        }
+    void move(int diffX, int diffY) {
+		xPos_ += diffX;
+		yPos_ += diffY;
+	}
+
+    void setTexture(char* new_texture) {
+    	std::strcpy(texture_, new_texture);
+    }
 };
