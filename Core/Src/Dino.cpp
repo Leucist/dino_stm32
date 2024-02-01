@@ -21,7 +21,7 @@ public:
       }
 
     void jump(){
-            GameObject::move(0, 1);
+            GameObject::move(0, -1);
             delay = FLY_TIME;
         }
 
@@ -30,13 +30,12 @@ public:
     		delay--;
     	}
     	else {
-    		delay = 0;
-    		GameObject::move(0, -1);
+    		GameObject::move(0, 1);
     	}
     }
 
     void draw() {
-    	lcd_print(this->getX(), this->getY(), textures_[frame++]);
+    	lcd_print(this->getY(), this->getX(), textures_[frame++]);
     	if (frame > 1) frame = 0;
     }
 };

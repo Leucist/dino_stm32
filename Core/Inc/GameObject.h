@@ -45,6 +45,7 @@ protected:
 	}
 
     void setTexture(char* new_texture) {
-    	std::strcpy(texture_, new_texture);
+//    	std::strcpy(texture_, new_texture);
+    	this->texture_ = new_texture;
     }
 };

@@ -3,7 +3,6 @@
 
 class Score : public GameObject {
 private:
-//	int score = 0;
 	uint8_t score;
 
 public:
@@ -22,7 +21,7 @@ public:
 	void up() {
 		char scoreFromInt[3];
 		score++;										// rises current score
-		std::sprintf(scoreFromInt, "%d", score);		// converts score int -> char*
+		std::sprintf(scoreFromInt, "%02d", score);		// converts score int -> char*
 		this->setTexture(scoreFromInt);					// updates score texture
 	}
 

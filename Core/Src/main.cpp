@@ -173,23 +173,26 @@ void load_custom_chars(){
 }
 
 void lcd_transition(){
-  int mid = 7;
+	int mid = 7;
 
-  for (int i=0; i <= mid; i++) {
-    lcd_print(1, mid+i, filledSquare);
-    lcd_print(1, mid-i+1, filledSquare);
-    lcd_print(2, mid+i, filledSquare);
-    lcd_print(2, mid-i+1, filledSquare);
-  }
+	for (int i=0; i <= mid; i++) {
+	//    lcd_print(1, mid+i+1, filledSquare);
+		lcd_char(1, mid+i+1, 4);
+		lcd_char(1, mid-i, 4);
+		lcd_char(2, mid-i, 4);
+		lcd_char(2, mid+i+1, 4);
+		HAL_Delay(100);
+	}
 
-  for (int i=0; i <= mid; i++) {
-      lcd_print(1, mid+i, notFilledSquare);
-      lcd_print(1, mid-i+1, notFilledSquare);
-      lcd_print(2, mid+i, notFilledSquare);
-      lcd_print(2, mid-i+1, notFilledSquare);
-  }
+	for (int i=0; i <= mid; i++) {
+		lcd_char(1, mid+i+1, 5);
+		lcd_char(1, mid-i, 5);
+		lcd_char(2, mid-i, 5);
+		lcd_char(2, mid+i+1, 5);
+		HAL_Delay(100);
+	}
 
-  lcd_clear();
+	lcd_clear();
 
 }
 
@@ -218,7 +221,7 @@ void manage_obstacles(std::vector<Obstacle>& vec) {
     if(group_counter < Dino::FLY_TIME){  // add new obstacles
         if(chanseToCreateObstacle <= 1){
             vec.emplace_back(Obstacle(cactus_2));
-        }else if(chanseToCreateObstacle <= 4){
+        } else if(chanseToCreateObstacle <= 4){
             vec.emplace_back(Obstacle(cactus_1));
         }
     }
@@ -232,9 +235,9 @@ void end_game(Score* score){
   char max_score[3];
   std::sprintf(max_score, "%d", score->MAX_SCORE);
 
-  lcd_print(1, 1, "MAX_SCORE:");
+  lcd_print(1, 1, "MAX SCORE:");
   lcd_print(1, 14, max_score);
-  lcd_print(2, 1, "CURRENT_SCORE:");
+  lcd_print(2, 1, "CURRENT SCORE:");
   lcd_print(2, 14, score->getTexture());
 
   // Catch algorithm in the loop which breaks after the USER_BTN is pressed
@@ -261,7 +264,7 @@ void game(Score* score) {
 		// Iterate through the obstacles
 		for (Obstacle& obst : obstacles) {
 			obst.move();						// Move the current obstacle
-			gameOver = obst.collides(dino);	// Check if dino collides the obstacle
+			gameOver = obst.collides(dino);		// Check if dino collides the obstacle
 			obst.draw();						// Draw the obstacle
 		}
 

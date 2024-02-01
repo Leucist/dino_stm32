@@ -10,30 +10,30 @@
 ../Core/Src/Obstacle.cpp:7:2:Obstacle::Obstacle(char*)	1
 ../Core/Src/Obstacle.cpp:10:10:void Obstacle::move()	1
 ../Core/Src/Obstacle.cpp:14:10:bool Obstacle::collides(GameObject)	4
-../Core/Src/Score.cpp:13:2:Score::Score(uint8_t, uint8_t)	1
-../Core/Src/Score.cpp:18:6:int Score::get()	1
-../Core/Src/Score.cpp:22:7:void Score::up()	1
-../Core/Src/Score.cpp:29:7:void Score::calculateMaxScore()	2
-../Core/Src/Score.cpp:33:7:void Score::reset()	1
+../Core/Src/Score.cpp:12:2:Score::Score(uint8_t, uint8_t)	1
+../Core/Src/Score.cpp:17:6:int Score::get()	1
+../Core/Src/Score.cpp:21:7:void Score::up()	1
+../Core/Src/Score.cpp:28:7:void Score::calculateMaxScore()	2
+../Core/Src/Score.cpp:32:7:void Score::reset()	1
 ../Core/Src/Dino.cpp:14:5:Dino::Dino(char (*)[8], uint8_t, uint8_t)	2
 ../Core/Src/Dino.cpp:23:10:void Dino::jump()	1
 ../Core/Src/Dino.cpp:28:10:void Dino::fall()	2
-../Core/Src/Dino.cpp:38:10:virtual void Dino::draw()	2
+../Core/Src/Dino.cpp:37:10:virtual void Dino::draw()	2
 /opt/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.linux64_1.1.1.202309131626/tools/arm-none-eabi/include/c++/11.3.1/new:174:33:void* operator new(std::size_t, void*)	1
 ../Core/Src/main.cpp:158:6:void loadCustomChar(uint8_t, const char*)	2
 ../Core/Src/main.cpp:166:6:void load_custom_chars()	1
 ../Core/Src/main.cpp:175:6:void lcd_transition()	3
-../Core/Src/main.cpp:196:6:void manage_obstacles(std::vector<Obstacle>&)	8
-../Core/Src/main.cpp:228:6:void end_game(Score*)	2
+../Core/Src/main.cpp:199:6:void manage_obstacles(std::vector<Obstacle>&)	8
+../Core/Src/main.cpp:231:6:void end_game(Score*)	2
 /opt/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.linux64_1.1.1.202309131626/tools/arm-none-eabi/include/c++/11.3.1/bits/stl_vector.h:128:14:std::_Vector_base<Obstacle, std::allocator<Obstacle> >::_Vector_impl::~_Vector_impl()	1
 /opt/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.linux64_1.1.1.202309131626/tools/arm-none-eabi/include/c++/11.3.1/bits/stl_vector.h:288:7:std::_Vector_base<_Tp, _Alloc>::_Vector_base() [with _Tp = Obstacle; _Alloc = std::allocator<Obstacle>]	1
 /opt/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.linux64_1.1.1.202309131626/tools/arm-none-eabi/include/c++/11.3.1/bits/stl_vector.h:487:7:std::vector<_Tp, _Alloc>::vector() [with _Tp = Obstacle; _Alloc = std::allocator<Obstacle>]	1
 ../Core/Inc/GameObject.h:7:7:constexpr GameObject::GameObject(const GameObject&)	1
-../Core/Src/main.cpp:244:6:void game(Score*)	7
-../Core/Src/main.cpp:298:5:int main()	1
-../Core/Src/main.cpp:350:6:void SystemClock_Config()	4
-../Core/Src/main.cpp:395:13:void MX_GPIO_Init()	1
-../Core/Src/main.cpp:454:6:void Error_Handler()	1
+../Core/Src/main.cpp:247:6:void game(Score*)	7
+../Core/Src/main.cpp:301:5:int main()	1
+../Core/Src/main.cpp:353:6:void SystemClock_Config()	4
+../Core/Src/main.cpp:398:13:void MX_GPIO_Init()	1
+../Core/Src/main.cpp:457:6:void Error_Handler()	1
 /opt/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.linux64_1.1.1.202309131626/tools/arm-none-eabi/include/c++/11.3.1/bits/stl_vector.h:1007:7:bool std::vector<_Tp, _Alloc>::empty() const [with _Tp = Obstacle; _Alloc = std::allocator<Obstacle>]	1
 /opt/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.linux64_1.1.1.202309131626/tools/arm-none-eabi/include/c++/11.3.1/bits/stl_vector.h:1043:7:std::vector<_Tp, _Alloc>::reference std::vector<_Tp, _Alloc>::operator[](std::vector<_Tp, _Alloc>::size_type) [with _Tp = Obstacle; _Alloc = std::allocator<Obstacle>]	1
 /opt/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.linux64_1.1.1.202309131626/tools/arm-none-eabi/include/c++/11.3.1/bits/stl_vector.h:811:7:std::vector<_Tp, _Alloc>::iterator std::vector<_Tp, _Alloc>::begin() [with _Tp = Obstacle; _Alloc = std::allocator<Obstacle>]	1
