@@ -9,7 +9,7 @@ public:
 	static const uint8_t SCORE_LIMIT = 99;
 	uint8_t MAX_SCORE;
 
-	Score(uint8_t xPos, uint8_t yPos) : GameObject("00", xPos, yPos) {
+	Score(uint8_t xPos, uint8_t yPos) : GameObject(0, xPos, yPos) {
 		score = 0;
 		MAX_SCORE = 0;
 	}
@@ -18,11 +18,14 @@ public:
 		return score;
 	}
 
-	void up() {
+	void draw() {
 		char scoreFromInt[3];
-		score++;										// rises current score
-		std::sprintf(scoreFromInt, "%02d", score);		// converts score int -> char*
-		this->setTexture(scoreFromInt);					// updates score texture
+		std::sprintf(scoreFromInt, "%02d", score);				// converts score int -> char*
+		lcd_print(this->getY(), this->getX(), scoreFromInt);
+	}
+
+	void up() {
+		score++;		// rises current score
 	}
 
 	void calculateMaxScore() {
@@ -32,6 +35,6 @@ public:
 	void reset() {
 		score = 0;
 //		char zeroScore[] = "00";
-		this->setTexture("00");
+//		this->setTexture("00");
 	}
 };

@@ -7,14 +7,15 @@
 class GameObject
 {
 private:
-    char* texture_;
+//    char* texture_;
+	uint8_t textureNum_;
     uint8_t xPos_;
     uint8_t yPos_;
 
 public:
-	GameObject(char* texture, uint8_t xPos, uint8_t yPos)
+	GameObject(uint8_t textureNum, uint8_t xPos, uint8_t yPos)
     {
-    	texture_ = texture;
+		textureNum_ = textureNum;
     	xPos_ = xPos;
 		yPos_ = yPos;
     }
@@ -30,12 +31,12 @@ public:
         return yPos_;
 	}
 
-    char* getTexture(){
-        return texture_;
-	}
+//    uint8_t getTexture(){
+//        return textureNum_;
+//	}
 
     virtual void draw(){
-    	lcd_print(yPos_, xPos_, texture_);
+    	lcd_char(yPos_, xPos_, textureNum_);
 	}
 
 protected:
@@ -44,8 +45,8 @@ protected:
 		yPos_ += diffY;
 	}
 
-    void setTexture(char* new_texture) {
+    void setTexture(uint8_t textureNum) {
 //    	std::strcpy(texture_, new_texture);
-    	this->texture_ = new_texture;
+    	this->textureNum_ = textureNum;
     }
 };

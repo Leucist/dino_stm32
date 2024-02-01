@@ -4,7 +4,7 @@
 class Obstacle : public GameObject {
 public:
     // Constructor - uses the GameObject constructor to set initial position
-	Obstacle(char* texture) : GameObject(texture, 15, 2) {}
+	Obstacle(uint8_t textureNum) : GameObject(textureNum, 15, 2) {}
 
     // Call the move function from GameObject
     void move(){

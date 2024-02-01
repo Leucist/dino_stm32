@@ -78,28 +78,7 @@ char dinosaur_2[] = {
 
 //char dinosaur_textures[2][8] = {dinosaur_1, dinosaur_2};
 
-char dinosaur_textures[2][8] = {
-    {
-        0b01011,
-        0b00111,
-        0b00110,
-        0b01110,
-        0b11110,
-        0b11110,
-        0b01010,
-        0b01010
-    },
-    {
-        0b00000,
-        0b01011,
-        0b00111,
-        0b00110,
-        0b01110,
-        0b11110,
-        0b11110,
-        0b10001
-    }
-};
+uint8_t dinosaur_textures[2] = {0, 1};
 
 char cactus_1[] = {
 	0b00110,
@@ -220,9 +199,9 @@ void manage_obstacles(std::vector<Obstacle>& vec) {
 
     if(group_counter < Dino::FLY_TIME){  // add new obstacles
         if(chanseToCreateObstacle <= 1){
-            vec.emplace_back(Obstacle(cactus_2));
+            vec.emplace_back(Obstacle(3));
         } else if(chanseToCreateObstacle <= 4){
-            vec.emplace_back(Obstacle(cactus_1));
+            vec.emplace_back(Obstacle(2));
         }
     }
 }
@@ -233,12 +212,14 @@ void end_game(Score* score){
   score->calculateMaxScore();
 
   char max_score[3];
-  std::sprintf(max_score, "%d", score->MAX_SCORE);
+  char scoreFromInt[3];
+  std::sprintf(max_score, "%02d", score->MAX_SCORE);
+  std::sprintf(scoreFromInt, "%02d", score->get());
 
   lcd_print(1, 1, "MAX SCORE:");
   lcd_print(1, 14, max_score);
   lcd_print(2, 1, "CURRENT SCORE:");
-  lcd_print(2, 14, score->getTexture());
+  lcd_print(2, 14, scoreFromInt);
 
   // Catch algorithm in the loop which breaks after the USER_BTN is pressed
   while (HAL_GPIO_ReadPin(USER_BTN_GPIO_Port, USER_BTN_Pin) == GPIO_PIN_SET) {}
